@@ -181,7 +181,7 @@ module Hanami
       #       # ...
       #     end
       #   end
-      if RUBY_VERSION >= "3.0"
+      if RUBY_VERSION >= "2,7"
         def initialize(*args, **kwargs)
           super
         ensure
@@ -361,7 +361,7 @@ module Hanami
       #   end
       #
       #   Signup.new.call # => NoMethodError
-      if RUBY_VERSION >= "3.0"
+      if RUBY_VERSION >= "2.7"
         def call(*args, **kwargs)
           @__result = ::Hanami::Interactor::Result.new
           _call(*args, **kwargs) { super }
@@ -377,7 +377,7 @@ module Hanami
 
       # @api private
       # @since 1.1.0
-      if RUBY_VERSION >= "3.0"
+      if RUBY_VERSION >= "2.7"
         def _call(*args, **kwargs)
           catch :fail do
             validate!(*args, **kwargs)
@@ -398,7 +398,7 @@ module Hanami
       end
 
       # @since 1.1.0
-      if RUBY_VERSION >= "3.0"
+      if RUBY_VERSION >= "2.7"
         def validate!(*args, **kwargs)
           fail! unless valid?(*args, **kwargs)
         end
